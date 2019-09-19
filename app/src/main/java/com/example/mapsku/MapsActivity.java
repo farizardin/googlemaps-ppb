@@ -143,16 +143,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void hitungJarak(double latAsal, Double lngAsal,double latTujuan, double lngTujuan)
     {
-        Location asal = new Location("asal");
-        Location tujuan = new Location("tujuan");
-        tujuan.setLatitude(latTujuan);
-        tujuan.setLatitude(lngTujuan);
-        asal.setLatitude(latAsal);
-        asal.setLongitude(lngTujuan);
-        float jarak = (float) asal.distanceTo(tujuan)/1000;
-        String jaraknya = String.valueOf(jarak);
-        Toast.makeText(getBaseContext(), "jarak : " + jaraknya +" km ",
-        Toast.LENGTH_LONG).show();
+        try{
+            Location asal = new Location("asal");
+            Location tujuan = new Location("tujuan");
+            tujuan.setLatitude(latTujuan);
+            tujuan.setLatitude(lngTujuan);
+            asal.setLatitude(latAsal);
+            asal.setLongitude(lngTujuan);
+            float jarak = (float) asal.distanceTo(tujuan)/1000;
+            String jaraknya = String.valueOf(jarak);
+            Toast.makeText(getBaseContext(), "jarak : " + jaraknya +" km ", Toast.LENGTH_LONG).show();
+        }catch (Exception e){
+
+        }
     }
 
 
